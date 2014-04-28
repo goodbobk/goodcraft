@@ -1,0 +1,39 @@
+#! /usr/bin/perl
+
+use Modern::Perl;
+
+
+for my $r (qw/00 55 aa ff/) {
+    for my $g (qw/00 55 aa ff/) {
+        for my $b (qw/00 55 aa ff/) {
+            my $color = "$r$g$b";
+            system "convert -size 16x16 'canvas:#$color' src/main/resources/assets/goodcraft/textures/blocks/colorblock-$color.png";
+            say "        colors.put(\"$color\", new ColorBlock_$color());";
+            open OUT, ">", "src/main/java/com/gooddata/goodcraft/colors/ColorBlock_$color.java";
+            my $text = <<END;
+package com.gooddata.goodcraft.colors;
+
+import com.gooddata.goodcraft.GoodCraft;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+/**
+ * Created by bohumil.koutsky on 11/04/14.
+ */
+public class ColorBlock_$color extends ColorBlock {
+
+    public ColorBlock_$color() {
+        super();
+        color = "TMPL";
+        setBlockName("colorblock_$color");
+        setBlockTextureName(GoodCraft.MOD_ID + ":" + "colorblock-$color");
+        GameRegistry.registerBlock(this, "colorblock_$color");
+    }
+}
+END
+            print OUT $text;
+            close OUT;
+
+        }
+    }
+}
+

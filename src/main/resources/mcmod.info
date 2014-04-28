@@ -1,0 +1,16 @@
+[
+{
+  "modid": "GoodCraft",
+  "name": "GoodData Mod",
+  "description": "Monetize your data while Minecrafting!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Bob Koutsky"],
+  "credits": "The Forge and FML guys, for making Forge",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

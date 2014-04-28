@@ -1,0 +1,18 @@
+package com.gooddata.goodcraft.font;
+
+import com.gooddata.goodcraft.GoodCraft;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+/**
+ * Created by bohumil.koutsky on 11/04/14.
+ */
+public class FontBlock_TMPL extends FontBlock {
+
+    public FontBlock_TMPL() {
+        super();
+        letter = 'TMPL';
+        setBlockName("letterblock_TMPL");
+        setBlockTextureName(GoodCraft.MOD_ID + ":" + "letterblock-TMPL");
+        GameRegistry.registerBlock(this, "letterblock_TMPL");
+    }
+}
